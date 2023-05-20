@@ -56,5 +56,5 @@ jobs:
       - name: Commit Push
         uses: ad-m/github-push-action@master
         with:
-          github_token: ${{ secrets.TOKEN_GITHUB }}
+          github_token: ${{ secrets.GITHUB_TOKEN }}
           repository: lucashccosta/poc-gitops
