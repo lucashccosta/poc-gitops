@@ -45,7 +45,7 @@ jobs:
           DOCKER_REGISTRY_REPOSITORY: ${{ secrets.DOCKER_REGISTRY_REPOSITORY }}
         run: |
           cd k8s
-          kustomize edit set image docker-image-gitops-api=DOCKER_REGISTRY_REPOSITORY:$GITHUB_SHA
+          kustomize edit set image docker-image-gitops-api=$DOCKER_REGISTRY_REPOSITORY:$GITHUB_SHA
 
       - name: Commit New Tag Version
         run: |
