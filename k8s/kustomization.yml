@@ -7,4 +7,4 @@ resources:
 images:
 - name: docker-image-gitops-api
   newName: lucashccosta/poc-gitops-api
-  newTag: 9600ddedb480ea92d33afe377449518007f42baf
+  newTag: 2dfe754cd649e1c2f237828a04bb9d8194c8ca6e
