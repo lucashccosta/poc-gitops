@@ -26,7 +26,6 @@ spec:
           env:
             - name: PORT
               value: "9080"
-          imagePullPolicy: Always
 
 ---
 apiVersion: v1
@@ -40,4 +39,3 @@ spec:
   ports:
     - port: 9080
       targetPort: 9080
-  type: LoadBalancer
