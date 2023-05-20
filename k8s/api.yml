@@ -36,6 +36,9 @@ spec:
   selector:
     app: gitops-api
     tier: backend
+  type: NodePort
   ports:
     - port: 9080
       targetPort: 9080
+      nodePort: 30036
+      protocol: TCP
