@@ -1,6 +1,10 @@
 # GitOps - K8s
 
-Arquivos para deploy da aplicação no Kubernetes.
+Arquivos para deploy da aplicação no Kubernetes. Para rodar num cluster K8s, rode o comando:
+
+```sh
+kubectl apply -f k8s/ 
+```
 
 ## api.yml
 
