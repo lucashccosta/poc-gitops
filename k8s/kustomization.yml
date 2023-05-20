@@ -5,6 +5,6 @@ resources:
 - api.yml
 
 images:
-- name: docker-image-gitops-api # aponta para api.yml > Deployment > spec.template.spec.containers["gitops-api"].image
-  newName: lucashccosta/poc-gitops-api
-  newTag: newtag
+- name: docker-image-gitops-api
+  newName: DOCKER_REGISTRY_REPOSITORY
+  newTag: 69f1881e05c72ba4be3059661aa168a87a678389
