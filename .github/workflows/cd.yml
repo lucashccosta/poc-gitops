@@ -33,7 +33,6 @@ jobs:
           file: ./api/Dockerfile
           context: ./api
           push: true
-          repository: ${{ secrets.DOCKER_REGISTRY_REPOSITORY }}
           tags: |
             ${{ secrets.DOCKER_REGISTRY_REPOSITORY }}:latest
             ${{ secrets.DOCKER_REGISTRY_REPOSITORY }}:${{ github.sha }}
