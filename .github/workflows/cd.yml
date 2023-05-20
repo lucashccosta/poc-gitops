@@ -37,4 +37,24 @@ jobs:
             ${{ secrets.DOCKER_REGISTRY_REPOSITORY }}:latest
             ${{ secrets.DOCKER_REGISTRY_REPOSITORY }}:${{ github.sha }}
 
-      
+      - name: Setup Kustomize.io
+        uses: imranismail/setup-kustomize@v2
+
+      - name: Update K8s Resources
+        env: 
+          DOCKER_REGISTRY_REPOSITORY: ${{ secrets.DOCKER_REGISTRY_REPOSITORY }}
+        run: |
+          cd k8s
+          kustomize edit set image docker-image-gitops-api=DOCKER_REGISTRY_REPOSITORY:$GITHUB_SHA
+
+      - name: Commit New Tag Version
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git commit -am "ci: set docker image version"
+
+      - name: Commit Push
+        uses: ad-m/github-push-action@master
+        with:
+          github_token: ${{ secrets.TOKEN_GITHUB }}
+          repository: lucashccosta/poc-gitops
