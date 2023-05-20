@@ -2,7 +2,7 @@ import express from "express";
 
 const app = express();
 const env = process.env;
-const PORT = env.PORT || 8080;
+const PORT = env.PORT || 9080;
 
 app.get("/api/v1/health", (req, res) => {
     res.json({
