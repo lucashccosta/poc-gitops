@@ -1,0 +1,43 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: gitops-api
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: gitops-api
+      tier: backend
+  template:
+    metadata:
+      labels:
+        app: gitops-api
+        tier: backend
+    spec:
+      containers:
+        - name: gitops-api
+          image: docker-image-gitops-api
+          resources:
+            limits:
+              memory: 128Mi
+              cpu: 500m
+          ports:
+            - containerPort: 3020
+          env:
+            - name: PORT
+              value: "8080"
+          imagePullPolicy: Always
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: gitops-api
+spec:
+  selector:
+    app: gitops-api
+    tier: backend
+  ports:
+    - port: 8080
+      targetPort: 8080
+  type: LoadBalancer
